@@ -1,0 +1,32 @@
+{
+  "name": "webpack-branch-versions",
+  "version": "1.0.0",
+  "description": "demonstrating branch versions concept",
+  "main": "src/index.js",
+  "scripts": {
+    "prestart": "rimraf dist/* && webpack",
+    "start": "live-server dist/",
+    "prebuild": "rimraf dist/*",
+    "build": "NODE_ENV=production webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eranshapira/webpack-branch-versions.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eranshapira/webpack-branch-versions/issues"
+  },
+  "homepage": "https://github.com/eranshapira/webpack-branch-versions#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^3.2.0",
+    "rimraf": "^2.6.3",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3"
+  },
+  "dependencies": {
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1"
+  }
+}
