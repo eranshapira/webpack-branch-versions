@@ -43,13 +43,13 @@ There is only one concept that we need to maintain in our deployment process - D
 
 Now that we have an infrastructure to deploy each branch version to a different path, we need to provide a way to use these versions.
 
-Take a look [express.js server](https://github.com/eranshapira/webpack-branch-versions/blob/master/server/index.js), which serves a rather static `index.html` response.
+Take a look at the [express.js server](https://github.com/eranshapira/webpack-branch-versions/blob/master/server/index.js), which serves a rather static `index.html` response.
 
-The only dynamic part here is the url prefix on the script tag which loads `main.js`, which should point to the same `publicPath` value assigned to the webpack config.
+The only dynamic part here is the url prefix for the script tag which loads `main.js`, which should point to the same `publicPath` value assigned to the webpack config.
 
 So for instance, in the example, after `npm install`, follow these steps:
 1. `npm run server` - this will run our example express.js server.
-2. open an additional terminal session and use `npm start` - this will run our webpack dev server, serving a small React app.
+2. open an additional terminal session and use `PUBLIC_PATH=http://localhost:8080/ npm start` - this will run our webpack dev server, serving a small React app from an absolute path of http://localhost:8080.
 3. Open http://localhost:3000/ - it shouldn't work, let's verify this.
 4. Open http://localhost:3000/setVersion?branchVersion=http://localhost:8080/ - this will change the current expressjs instance's branch version to http://localhost:8080/.
 5. Now let's open http://localhost:3000/ again - Voila! We should see the same app as we saw in http://localhost:8080/.
