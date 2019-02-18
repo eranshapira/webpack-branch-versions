@@ -48,7 +48,7 @@ Take a look at the [express.js server](https://github.com/eranshapira/webpack-br
 The only dynamic part here is the url prefix for the script tag which loads `main.js`, which should point to the same `publicPath` value assigned to the webpack config.
 
 So for instance, in the example, after `npm install`, follow these steps:
-1. `npm run server` - this will run our example express.js server.
+1. `npm run serve` - this will run our example express.js server.
 2. open an additional terminal session and use `PUBLIC_PATH=http://localhost:8080/ npm start` - this will run our webpack dev server, serving a small React app from an absolute path of http://localhost:8080.
 3. Open http://localhost:3000/ - it shouldn't work, let's verify this.
 4. Open http://localhost:3000/setVersion?branchVersion=http://localhost:8080/ - this will change the current expressjs instance's branch version to http://localhost:8080/.
