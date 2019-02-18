@@ -24,21 +24,36 @@ Only then, you update your tests, submit a PR and merge to master.
 
 The core concept is that a branch version simply represents a different deployment path.
 
-Let's dig deeper and see what it means...
+## Implementation
+
+Let's examine the key ingredients for implementing _Branch Versions_.
 
 ### Webpack
 
-I've created as example a [simple React application](https://github.com/eranshapira/webpack-branch-versions), which has the two basic elements necessary for _branch versions_:
+I've created an [example React application](https://github.com/eranshapira/webpack-branch-versions), which has a webpack usage with the two basic elements necessary for _branch versions_:
 
 1. [dynamic imports](https://webpack.js.org/guides/code-splitting/#dynamic-imports) - each webpack entry point dynamically imports the rest of the bundle. ([index.js](https://github.com/eranshapira/webpack-branch-versions/blob/master/src/index.js) dynamically loads [app.js](https://github.com/eranshapira/webpack-branch-versions/blob/master/src/app.js))
-2. [output.publicPath](https://webpack.js.org/configuration/output/#outputpublicpath) - define an absolute path for bundles, which instructs webpack to load any asset without any relative path issues.
+2. [output.publicPath](https://webpack.js.org/configuration/output/#outputpublicpath) - defines an absolute path for bundles, which instructs webpack to load any asset without any relative path issues.
 
-### CI/CD
+### Deployment
 
-There is only one concept that we need to maintain in our CI/CD process - Deployment must be performed to the same path specified in webpack's config.output.publicPath.
+There is only one concept that we need to maintain in our deployment process - Deploying the webpack build result must be uploaded to the same path that was specified in webpack's `config.output.publicPath` configuration value.
 
 ### Backend
 
-Now that we have an infrastructure to deploy different branch versions, we need to provide a way to use these versions.
+Now that we have an infrastructure to deploy each branch version to a different path, we need to provide a way to use these versions.
 
-Examine this [very-basic-never-to-be-used server](https://github.com/eranshapira/webpack-branch-versions/blob/master/server/index.js), In our code, the html served in the response is changing the folder from which it loads main.js.
+Take a look [express.js server](https://github.com/eranshapira/webpack-branch-versions/blob/master/server/index.js), which serves a rather static `index.html` response.
+
+The only dynamic part here is the url prefix on the script tag which loads `main.js`, which should point to the same `publicPath` value assigned to the webpack config.
+
+So for instance, in the example, after `npm install`, follow these steps:
+1. `npm run server` - this will run our example express.js server.
+2. open an additional terminal session and use `npm start` - this will run our webpack dev server, serving a small React app.
+3. Open http://localhost:3000/ - it shouldn't work, let's verify this.
+4. Open http://localhost:3000/setVersion?branchVersion=http://localhost:8080/ - this will change the current expressjs instance's branch version to http://localhost:8080/.
+5. Now let's open http://localhost:3000/ again - Voila! We should see the same app as we saw in http://localhost:8080/.
+
+This is a very basic demonstration of the concept.
+
+In the next part, I'll demonstrate how you can leverage _Branch Versions_ to route traffic to different versions and make an efficient A/B testing for your features against real users.
