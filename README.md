@@ -4,7 +4,7 @@ This article introduces a software development paradigm, which has been implemen
 
 _Branch versions_ allows stakeholders to test and verify different code variants without affecting production.
 
-In our teams, every code change, creates a branch version which allows product managers, QA teams and different customers to test and verify changes, without merging it to master.
+In our teams, every code change, creates a branch version which allows product managers, QA teams and different stakeholders to test and verify changes, without merging it to master.
 
 The impact is huge, just consider some of the following scenarios:
 
