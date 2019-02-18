@@ -1,4 +1,4 @@
-## Branch versions(Part 1)
+## UI Branch versions(Part 1)
 
 This article introduces a software development paradigm, which has been implemented and used on Verizon Media Group's Video syndication teams for the past 3 years.
 
@@ -16,12 +16,10 @@ Only then, you update your tests, submit a PR and merge to master.
 
 3. Rollback - A critical bug was deployed, requiring a fast rollback. Now, thanks to branch versions, every version is stored and created per branch, including master branch. this enables us to switch all of the traffic to a specific version instantly.
 
-(TBH - Scenario 3 never happened. avg. 90% unit tests coverage and branch versions)
-
 ## So, what defines a branch version?
 
 1. Isolation - The modified code is not part of master branch.
-2. Debug - Branch versions contain sourcemaps, debug info developers can inspect the code on multiple environments(extremely useful for cross-browser issues)
+2. Debug - Branch versions contain sourcemaps, developers can inspect code on external environments(extremely useful for cross-browsers)
 3. Protected - A branch version can be used only by specific people. (recommended)
 
 The core concept is that a branch version simply represents a different deployment path.
@@ -46,5 +44,3 @@ There is only one concept that we need to maintain in our CI/CD process - Deploy
 Now that we have an infrastructure to deploy different branch versions, we need to provide a way to use these versions.
 
 Examine [this very-basic-never-to-be-used server](https://github.com/eranshapira/webpack-branch-versions/blob/master/server/index.js), In our code, the html served in the response is changing the folder from which it loads main.js.
-
-## 
