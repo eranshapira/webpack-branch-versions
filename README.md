@@ -14,7 +14,7 @@ Serving a branch version to a group of users with a POC can contribute ideas for
 2. A bug is reported - use branch versions to inspect, and before deploying the fix, assign the branch version to a user/PM/QA to verify the fix.
 Only then, you update your tests, submit a PR and merge to master.
 
-3. Easy rollback - A critical bug was deployed, requiring a fast rollback. Now, thanks to branch versions, every version is stored and created per branch, including master branch. this enables us to switch all of the traffic to a specific version instantly.
+3. Rollback - A critical bug was deployed, requiring a fast rollback. Now, thanks to branch versions, every version is stored and created per branch, including master branch. this enables us to switch all of the traffic to a specific version instantly.
 
 (TBH - Scenario 3 never happened. avg. 90% unit tests coverage and branch versions)
 
