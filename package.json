@@ -7,7 +7,8 @@
     "prestart": "rimraf dist/* && webpack",
     "start": "live-server dist/",
     "prebuild": "rimraf dist/*",
-    "build": "NODE_ENV=production webpack"
+    "build": "NODE_ENV=production webpack",
+    "server": "node ./server/index.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/eranshapira/webpack-branch-versions#readme",
   "devDependencies": {
+    "express": "^4.16.4",
     "html-webpack-plugin": "^3.2.0",
     "rimraf": "^2.6.3",
     "webpack": "^4.29.3",
