@@ -28,11 +28,9 @@ Let's dig deeper and see what it means...
 
 ### Webpack
 
-Let's examine [this simple React application](https://github.com/eranshapira/webpack-branch-versions).
+I've created as example a [simple React application](https://github.com/eranshapira/webpack-branch-versions), which has the two basic elements necessary for _branch versions_:
 
-The key concepts we use in webpack are the following features:
-
-1. [dynamic imports](https://webpack.js.org/guides/code-splitting/#dynamic-imports) - each webpack entry point dynamically imports the rest of the bundle. ([js](https://github.com/eranshapira/webpack-branch-versions/blob/master/src/index.js) dynamically loads [js](https://github.com/eranshapira/webpack-branch-versions/blob/master/src/app.js))
+1. [dynamic imports](https://webpack.js.org/guides/code-splitting/#dynamic-imports) - each webpack entry point dynamically imports the rest of the bundle. ([index.js](https://github.com/eranshapira/webpack-branch-versions/blob/master/src/index.js) dynamically loads [app.js](https://github.com/eranshapira/webpack-branch-versions/blob/master/src/app.js))
 2. [output.publicPath](https://webpack.js.org/configuration/output/#outputpublicpath) - define an absolute path for bundles, which instructs webpack to load any asset without any relative path issues.
 
 ### CI/CD
@@ -43,4 +41,4 @@ There is only one concept that we need to maintain in our CI/CD process - Deploy
 
 Now that we have an infrastructure to deploy different branch versions, we need to provide a way to use these versions.
 
-Examine [this very-basic-never-to-be-used server](https://github.com/eranshapira/webpack-branch-versions/blob/master/server/index.js), In our code, the html served in the response is changing the folder from which it loads main.js.
+Examine this [very-basic-never-to-be-used server](https://github.com/eranshapira/webpack-branch-versions/blob/master/server/index.js), In our code, the html served in the response is changing the folder from which it loads main.js.
