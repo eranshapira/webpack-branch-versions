@@ -8,7 +8,7 @@
     "start": "live-server dist/",
     "prebuild": "rimraf dist/*",
     "build": "NODE_ENV=production webpack",
-    "server": "node ./server/index.js"
+    "serve": "node ./server/index.js"
   },
   "repository": {
     "type": "git",

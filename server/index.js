@@ -17,7 +17,7 @@ app.get('/', (req, res) => res.send(`
     <title>Branch version server</title>
   </head>
   <body>
-  <script type="text/javascript" src="${branchVersion || 'http://localhost:8080/'}main.js"></script></body>
+  <script type="text/javascript" src="${branchVersion}main.js"></script></body>
 </html>
 `))
 
