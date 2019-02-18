@@ -14,7 +14,7 @@ app.get('/', (req, res) => res.send(`
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Webpack App</title>
+    <title>Branch version server</title>
   </head>
   <body>
   <script type="text/javascript" src="${branchVersion || 'http://localhost:8080/'}main.js"></script></body>
