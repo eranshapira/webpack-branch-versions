@@ -2,7 +2,7 @@
 
 This article introduces a software development paradigm, which has been implemented and used on Verizon Media Group's Video syndication teams for the past 3 years.
 
-_Branch versions_ allow stakeholders to test and verify different code variants without affecting production.
+_Branch versions_ allows stakeholders to test and verify different code variants without affecting production.
 
 On our teams, every code change, creates a branch version which allows product managers, QA teams and different customers to test and verify changes, without merging it to master.
 
